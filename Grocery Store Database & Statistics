@@ -1,0 +1,42 @@
+--create a grocery store database.
+
+CREATE TABLE grocerystore 
+
+(id INTEGER PRIMARY KEY, item TEXT, quantity INTEGER, section TEXT, price NUMERIC);
+
+
+INSERT INTO grocerystore VALUES (1, "black beans", 15, "non-perishables", 1.39);
+INSERT INTO grocerystore VALUES (2, "rice", 9, "non-perishables", 5.98);
+INSERT INTO grocerystore VALUES (3, "broccoli", 10, "produce", 3.99);
+INSERT INTO grocerystore VALUES (4, "yellow squash", 13, "produce", 1.49);
+INSERT INTO grocerystore VALUES (5, "pizza", 40, "frozen", 3.96);
+INSERT INTO grocerystore VALUES (6, "chicken breast", 10, "meats", 7.98);
+INSERT INTO grocerystore VALUES (7, "smoothie blend", 8, "frozen", 11.78);
+INSERT INTO grocerystore VALUES (8, "crackers", 3, "non-perishables", 3.69);
+INSERT INTO grocerystore VALUES (9, "yogurt", 30, "dairy", 4.59);
+INSERT INTO grocerystore VALUES (10, "shampoo", 4, "hygiene", 9.00);
+INSERT INTO grocerystore VALUES (11, "windex", 4, "cleaning", 3.48);
+INSERT INTO grocerystore VALUES (12, "cookies", 7, "bakery", 5.05);
+INSERT INTO grocerystore VALUES (13, "butter", 13, "dairy", 5.29);
+INSERT INTO grocerystore VALUES (14, "eggs", 30, "dairy", 3.81);
+INSERT INTO grocerystore VALUES (15, "advil",5, "pharmacy", 10.99);
+
+--display the database ordered by price.
+SELECT * FROM grocerystore 
+ORDER BY price asc;
+
+
+--which items have a quanitity of 10 or more?
+SELECT * FROM grocerystore
+WHERE quantity >= 10;
+
+
+--what is the average price of items in the dairy section?
+SELECT AVG(price) FROM grocerystore
+WHERE section= "dairy";
+
+
+--what are the 5 most expensive items in the store?
+SELECT item, price FROM grocerystore
+ORDER BY price desc
+limit 5;
